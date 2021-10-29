@@ -1,15 +1,8 @@
 package com.example.bookingservice.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
@@ -21,6 +14,7 @@ import java.time.LocalDate;
 public class BookingInfoEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int bookingId;
 
     @Column
@@ -42,8 +36,21 @@ public class BookingInfoEntity {
     private int roomPrice;
 
     @Column
-    private int transactionId = 0;
+    private int transactionId;
 
     @Column
     private LocalDate bookedOn;
+
+    @Override
+    public String toString() {
+        return "(bookingId: " + bookingId
+                + ", fromDate: " + fromDate
+                + ", toDate: " + toDate
+                + ", aadharNumber: " + aadharNumber
+                + ", numOfRooms: " + numOfRooms
+                + ", roomNumbers: " + roomNumbers
+                + ", roomPrice: " + roomPrice
+                + ", transactionId: " + transactionId
+                + ", bookedOn: " + bookedOn +")";
+    }
 }

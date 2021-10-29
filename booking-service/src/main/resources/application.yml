@@ -11,3 +11,6 @@ eureka:
 spring:
   application:
     name: BOOKING-SERVICE
+  cloud:
+    discovery:
+      enabled: true

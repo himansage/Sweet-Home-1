@@ -11,3 +11,6 @@ eureka:
 spring:
   application:
     name: PAYMENT-SERVICE
+  cloud:
+    discovery:
+      enabled: true

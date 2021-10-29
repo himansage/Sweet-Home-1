@@ -23,7 +23,7 @@ public class BookingController {
     @PostMapping("/booking")
     public ResponseEntity<BookingInfoDTO> getBookingInfo(@RequestBody BookingRequestDTO bookingRequestDTO) {
 
-        BookingInfoDTO bookingInfoDTO = bookingService.getBookingInfo(bookingRequestDTO);
+        BookingInfoDTO bookingInfoDTO = bookingService.addBookingInfo(bookingRequestDTO);
 
         return new ResponseEntity<>(bookingInfoDTO, HttpStatus.CREATED);
     }
@@ -35,7 +35,8 @@ public class BookingController {
      * @return
      */
     @PostMapping("booking/{bookingId}/transaction")
-    public ResponseEntity<BookingInfoDTO> addPaymentDetails(@PathVariable(name = "bookingId") int bookingId, @RequestBody PaymentRequestDTO paymentRequestDTO) {
+    public ResponseEntity<BookingInfoDTO> addPaymentDetails(@PathVariable(name = "bookingId") int bookingId,
+                                                            @RequestBody PaymentRequestDTO paymentRequestDTO) {
 
         BookingInfoDTO bookingInfoDTO = bookingService.addPaymentDetails(bookingId, paymentRequestDTO);
 

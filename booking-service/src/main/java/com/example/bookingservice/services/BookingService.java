@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface BookingService {
 
-    BookingInfoDTO getBookingInfo(BookingRequestDTO bookingRequestDTO);
+    BookingInfoDTO addBookingInfo(BookingRequestDTO bookingRequestDTO);
 
     BookingInfoDTO addPaymentDetails(int bookingId, PaymentRequestDTO paymentRequestDTO);
 }

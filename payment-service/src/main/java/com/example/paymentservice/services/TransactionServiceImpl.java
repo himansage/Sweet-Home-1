@@ -20,8 +20,6 @@ public class TransactionServiceImpl implements TransactionService{
     @Override
     public int performTransaction(PaymentRequestDTO paymentRequestDTO) {
 
-        // TODO: Add validation for paymentmode
-
         // Save the transaction entry in db
         TransactionDetailsEntity transactionDetailsEntity = TransactionDetailsEntity.builder()
                 .bookingId(paymentRequestDTO.getBookingId())
@@ -32,7 +30,7 @@ public class TransactionServiceImpl implements TransactionService{
 
         transactionDetailsDao.save(transactionDetailsEntity);
 
-
+        // Return transactionId
         return transactionDetailsEntity.getId();
     }
 
